@@ -1,46 +1,79 @@
-# Event Resource Allocation System
+# Event Resource Management System (ERMS)
 
-A Flask-based web application for managing events and allocating resources to them, with conflict detection and utilization reporting.
+A Flask-based web application for managing events and allocating resources efficiently, with built-in conflict detection and utilization reporting.
 
-## Features
+---
 
-- **Event Management**: Create, view, and delete events with start and end times.
-- **Resource Management**: Add and remove resources with types.
-- **Resource Allocation**: Allocate resources to events with automatic conflict detection.
-- **Reports**: View resource utilization reports showing used hours, free hours, and percentage utilization over a week.
+## 🚀 Features
 
-## Installation
+* Event creation, viewing, and deletion with start/end time support
+* Resource management with type/category classification
+* Resource allocation to events with conflict detection
+* Weekly resource utilization report (used hours, free hours, utilization %)
+* Responsive and clean UI using Bootstrap
 
-1. Clone or download the project files.
-2. Install the required dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-3. Run the application:
-   ```
-   python app.py
-   ```
-4. Open your browser and navigate to `http://localhost:5000`.
+---
 
-## Database
+## 🛠️ Tech Stack
 
-The application uses SQLite (`db.sqlite3`) for data storage. The database is automatically created when the app runs for the first time.
+* **Backend**: Flask, Flask-SQLAlchemy
+* **Database**: SQLite
+* **Frontend**: HTML, CSS, Bootstrap, Jinja2
 
-## Usage
+---
 
-- **Home**: Landing page.
-- **Events**: Manage events (add, delete).
-- **Resources**: Manage resources (add, delete).
-- **Allocate**: Assign resources to events (checks for conflicts).
-- **Report**: View weekly resource utilization.
+## 📦 Installation & Setup
 
-## Technologies Used
+```bash
+git clone <your-repository-url>
+cd flask_project
+pip install -r flask_app/requirements.txt
+python flask_app/app.py
+```
 
-- Flask
-- Flask-SQLAlchemy
-- SQLite
-- HTML/CSS (via Jinja2 templates)
+Open in browser:
 
-## Contributing
+```
+http://localhost:5000
+```
 
-Feel free to submit issues or pull requests for improvements.
+> SQLite database (`flask_app/instance/db.sqlite3`) is created automatically on first run.
+
+---
+
+## 📌 Application Pages
+
+* Home – Dashboard
+* Events – Manage events
+* Resources – Manage resources
+* Allocate – Assign resources to events
+* Report – Weekly utilization report
+
+---
+
+## 🖼️ Screenshots
+
+![Home](flask_app/screenshots/project img1.PNG)
+![Events](flask_app/screenshots/project img2.PNG)
+![Resources](flask_app/screenshots/project img3.PNG)
+![Allocate](flask_app/screenshots/project img4.PNG)
+![Report](flask_app/screenshots/project img5.PNG)
+
+---
+
+## 🎥 Demo Video
+
+[https://drive.google.com/file/d/1UFDZ6IqbcSE7nL4qhh08ntxgUTm-fpGt/view?usp=sharing](https://drive.google.com/file/d/1UFDZ6IqbcSE7nL4qhh08ntxgUTm-fpGt/view?usp=sharing)
+
+---
+
+## 👤 Author
+
+**IYDA ROSE BELL L**
+Event Resource Management System (ERMS)
+Built using Flask & Bootstrap
+
+---
+
+© 2025 Event Resource Management System
+
