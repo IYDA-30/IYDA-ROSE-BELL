@@ -1,0 +1,42 @@
+body {
+    background: linear-gradient(120deg, #f6f9fc, #eef2f7);
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar {
+    background: linear-gradient(90deg, #4f46e5, #6366f1);
+    padding: 14px 0;
+}
+
+.navbar-brand,
+.nav-link {
+    color: white !important;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.card {
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 10px 25px rgba(8, 8, 8, 0.08);
+}
+
+.card-header {
+    background: transparent;
+    border-bottom: 1px solid #eee;
+    font-weight: 600;
+}
+
+.btn {
+    border-radius: 10px;
+}
+
+footer {
+    text-align: center;
+    color: #777;
+    margin-bottom: 20px;
+}

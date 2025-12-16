@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0"><i class="fas fa-link"></i> Allocate Resources to Events</h5>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <label for="event" class="form-label">Select Event</label>
+                            <select class="form-select" id="event" name="event" required>
+                                <option value="">Choose an event...</option>
+                                {% for e in events %}
+                                <option value="{{ e.id }}">{{ e.name }} ({{ e.start_time.strftime('%Y-%m-%d %H:%M') }} - {{ e.end_time.strftime('%Y-%m-%d %H:%M') }})</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-5">
+                            <label for="resource" class="form-label">Select Resource</label>
+                            <select class="form-select" id="resource" name="resource" required>
+                                <option value="">Choose a resource...</option>
+                                {% for r in resources %}
+                                <option value="{{ r.id }}">{{ r.name }} ({{ r.type }})</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-2 d-flex align-items-end">
+                            <button type="submit" class="btn btn-success w-100"><i class="fas fa-check"></i> Allocate</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

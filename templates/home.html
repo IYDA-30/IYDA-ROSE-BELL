@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+/* -------- HOME PAGE STYLES -------- */
+.home-card {
+    background: linear-gradient(135deg, #f8f9fa, #eef1f5);
+    border-radius: 15px;
+    padding: 50px 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.home-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.home-subtitle {
+    font-size: 1.1rem;
+    color: #6c757d;
+}
+
+.home-btn {
+    padding: 15px;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.home-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Footer */
+.home-footer {
+    margin-top: 60px;
+    padding: 20px 0;
+    text-align: center;
+    color: #6c757d;
+    font-size: 0.9rem;
+    border-top: 1px solid #dee2e6;
+}
+</style>
+
+<div class="home-card text-center">
+
+    <h1 class="home-title mb-3">
+        Welcome to ERMS 👋
+    </h1>
+
+    <p class="home-subtitle mb-4">
+        Event Resource Management System helps you plan events,
+        manage resources, and avoid scheduling conflicts efficiently.
+    </p>
+
+    <div class="row justify-content-center mt-4 g-3">
+        <div class="col-md-3 col-sm-6">
+            <a href="/events" class="btn btn-primary w-100 home-btn">
+                <i class="fas fa-calendar-plus mb-1"></i><br>
+                Manage Events
+            </a>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <a href="/resources" class="btn btn-success w-100 home-btn">
+                <i class="fas fa-cogs mb-1"></i><br>
+                Manage Resources
+            </a>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <a href="/allocate" class="btn btn-warning w-100 home-btn">
+                <i class="fas fa-link mb-1"></i><br>
+                Allocate Resources
+            </a>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <a href="/report" class="btn btn-info w-100 home-btn text-white">
+                <i class="fas fa-chart-bar mb-1"></i><br>
+                View Report
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="home-footer">
+    © 2025 <strong>Event Resource Management System</strong> | Built with Flask & Bootstrap
+</div>
+
+{% endblock %}

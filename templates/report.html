@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title mb-0">
+            <i class="fas fa-chart-bar"></i> Resource Utilization Report
+        </h5>
+    </div>
+
+    <div class="card-body">
+        {% if data %}
+        <div class="table-responsive">
+            <table class="table table-striped align-middle">
+                <thead>
+                    <tr>
+                        <th>Resource</th>
+                        <th>Used Hours</th>
+                        <th>Free Hours</th>
+                        <th>Utilization</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for r in data %}
+                    <tr>
+                        <td>{{ r.resource }}</td>
+                        <td>{{ r.used }} hrs</td>
+                        <td>{{ r.free }} hrs</td>
+                        <td>
+                            <div class="progress" style="width:220px;">
+                                <div class="progress-bar bg-success"
+                                     role="progressbar"
+                                     data-util="{{ r.utilization }}"
+                                     aria-valuemin="0"
+                                     aria-valuemax="100">
+                                    {{ r.utilization }}%
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <p class="text-muted mt-3">
+            * Utilization calculated based on a 168-hour week (24 × 7)
+        </p>
+
+        {% else %}
+        <p class="text-muted">
+            No data available. Add events and allocate resources to view report.
+        </p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".progress-bar").forEach(bar => {
+        const value = parseFloat(bar.dataset.util) || 0;
+        bar.style.width = value + "%";
+        bar.setAttribute("aria-valuenow", value);
+    });
+});
+</script>
+{% endblock %}
