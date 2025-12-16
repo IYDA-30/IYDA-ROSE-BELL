@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiniShop - Cart</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .cart-container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .cart-container h2 {
+      margin-bottom: 20px;
+      color: #0ea5a4;
+      text-align: center;
+    }
+
+    .cart-items {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+      gap: 15px;
+    }
+    .cart-item span {
+  flex: 1;
+}
+    .cart-item-name {
+  text-align: left;
+}
+
+.cart-item-price {
+  text-align: right;
+  min-width: 80px;
+}
+
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+
+    .cart-item-name {
+      font-weight: 600;
+    }
+
+    .cart-summary {
+      margin-top: 20px;
+      text-align: right;
+    }
+
+    .cart-summary h3 {
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+
+    .checkout-btn {
+      background: #0ea5a4;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .checkout-btn:hover {
+      background: #0c8c8a;
+    }
+    .remove-btn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.remove-btn:hover {
+  background: darkred;
+}
+
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">MiniShop</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/product.html">Products</a>
+      <a href="/cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="cart-container">
+      <h2>Your Cart 🛒</h2>
+      <ul id="cart-items" class="cart-items"></ul>
+      <div class="cart-summary">
+        <h3>Total: ₹<span id="total">0</span></h3>
+        <button class="checkout-btn" onclick="checkout()">Checkout</button>
+      </div>
+    </div>
+  </main>
+  <script>
+  function loadCart() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartItems = document.getElementById("cart-items");
+    const totalEl = document.getElementById("total");
+    cartItems.innerHTML = "";
+    let total = 0;
+
+    if (cart.length === 0) {
+      cartItems.innerHTML = "<p style='text-align:center;'>Your cart is empty 😢</p>";
+    } else {
+      cart.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.classList.add("cart-item");
+        li.innerHTML = `
+        <span class="cart-item-name">${item.name}</span>
+        <span class="cart-item-price">₹${item.price}</span>
+        <button class="remove-btn" onclick="removeItem(${index})">❌</button>
+        `;
+
+        cartItems.appendChild(li);
+        total += item.price;
+      });
+    }
+
+    totalEl.textContent = total;
+  }
+
+  function removeItem(index) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.splice(index, 1); // remove one product by index
+    localStorage.setItem("cart", JSON.stringify(cart));
+    loadCart();
+  }
+
+  function checkout() {
+    if (confirm("Proceed to checkout?")) {
+      alert("🎉 Order placed successfully!");
+      localStorage.removeItem("cart");
+      loadCart();
+    }
+  }
+
+  loadCart();
+</script>
+
+
+  
+</body>
+</html>
